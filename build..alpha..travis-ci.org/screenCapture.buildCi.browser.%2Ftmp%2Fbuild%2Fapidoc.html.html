@@ -1,0 +1,616 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/tobie/ua-parser">ua-parser (v0.3.5)</a>
+</h1>
+<h4>A port of Browserscope's user agent parser.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ua-parser">module ua-parser</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ua-parser.parse">
+            function <span class="apidocSignatureSpan">ua-parser.</span>parse
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ua-parser.parseDevice">
+            function <span class="apidocSignatureSpan">ua-parser.</span>parseDevice
+            <span class="apidocSignatureSpan">(str, ua_family, os_family)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ua-parser.parseOS">
+            function <span class="apidocSignatureSpan">ua-parser.</span>parseOS
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ua-parser.parseUA">
+            function <span class="apidocSignatureSpan">ua-parser.</span>parseUA
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ua-parser.</span>device</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ua-parser.</span>helpers</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ua-parser.</span>os</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ua-parser.</span>results</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ua-parser.</span>ua</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ua-parser.device">module ua-parser.device</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ua-parser.device.Device">
+            function <span class="apidocSignatureSpan">ua-parser.device.</span>Device
+            <span class="apidocSignatureSpan">(family)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ua-parser.device.makeParser">
+            function <span class="apidocSignatureSpan">ua-parser.device.</span>makeParser
+            <span class="apidocSignatureSpan">(regexes)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ua-parser.helpers">module ua-parser.helpers</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ua-parser.helpers.startsWithDigit">
+            function <span class="apidocSignatureSpan">ua-parser.helpers.</span>startsWithDigit
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ua-parser.os">module ua-parser.os</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ua-parser.os.OS">
+            function <span class="apidocSignatureSpan">ua-parser.os.</span>OS
+            <span class="apidocSignatureSpan">(family, major, minor, patch, patchMinor)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ua-parser.os.makeParser">
+            function <span class="apidocSignatureSpan">ua-parser.os.</span>makeParser
+            <span class="apidocSignatureSpan">(regexes)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ua-parser.results">module ua-parser.results</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ua-parser.results.BackwardsCompatResults">
+            function <span class="apidocSignatureSpan">ua-parser.results.</span>BackwardsCompatResults
+            <span class="apidocSignatureSpan">(ua_str, ua, os, device)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ua-parser.ua">module ua-parser.ua</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ua-parser.ua.UA">
+            function <span class="apidocSignatureSpan">ua-parser.ua.</span>UA
+            <span class="apidocSignatureSpan">(family, major, minor, patch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ua-parser.ua.makeParser">
+            function <span class="apidocSignatureSpan">ua-parser.ua.</span>makeParser
+            <span class="apidocSignatureSpan">(regexes)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ua-parser" id="apidoc.module.ua-parser">module ua-parser</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ua-parser.parse" id="apidoc.element.ua-parser.parse">
+        function <span class="apidocSignatureSpan">ua-parser.</span>parse
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parse(str) {
+  var ua = parseUA(str),
+      os = parseOS(str),
+      device = parseDevice(str);
+  return new Results(str, ua, os, device);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Usage :: [node.js][1]
+---------------------
+```js
+var http = require('http');
+
+http.createServer(function (req, res) {
+
+var r = require('ua-parser').<span class="apidocCodeKeywordSpan">parse</span>(req.headers['user-agent']);
+
+console.log(r.ua.toString());        // -&gt; "Safari 5.0.1"
+console.log(r.ua.toVersionString()); // -&gt; "5.0.1"
+console.log(r.ua.family)             // -&gt; "Safari"
+console.log(r.ua.major);             // -&gt; "5"
+console.log(r.ua.minor);             // -&gt; "0"
+console.log(r.ua.patch);             // -&gt; "1"
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ua-parser.parseDevice" id="apidoc.element.ua-parser.parseDevice">
+        function <span class="apidocSignatureSpan">ua-parser.</span>parseDevice
+        <span class="apidocSignatureSpan">(str, ua_family, os_family)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parser(str, ua_family, os_family) {
+  var obj;
+
+  if (typeof str === 'string') {
+    for (var i = 0, length = parsers.length; i &lt; length; i++) {
+      obj = parsers[i](str, ua_family, os_family);
+      if (obj) { return obj; }
+    }
+  }
+
+  return obj || new Device();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  var userAgent = req.headers['user-agent'];
+
+  console.log(p.parseUA(userAgent).toString());
+  // -&gt; "Safari 5.0.1"
+  console.log(p.parseOS(userAgent).toString());
+  // -&gt; "iOS 5.1"
+  console.log(p.<span class="apidocCodeKeywordSpan">parseDevice</span>(userAgent).toString());
+  // -&gt; "iPhone"
+
+}).listen(3000);
+```
+
+Usage :: python
+---------------
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ua-parser.parseOS" id="apidoc.element.ua-parser.parseOS">
+        function <span class="apidocSignatureSpan">ua-parser.</span>parseOS
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parser(str) {
+  var obj;
+
+  if (typeof str === 'string') {
+    for (var i = 0, length = parsers.length; i &lt; length; i++) {
+      obj = parsers[i](str);
+      if (obj) { return obj; }
+    }
+  }
+
+  return obj || new OS();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+http.createServer(function (req, res) {
+
+  var userAgent = req.headers['user-agent'];
+
+  console.log(p.parseUA(userAgent).toString());
+  // -&gt; "Safari 5.0.1"
+  console.log(p.<span class="apidocCodeKeywordSpan">parseOS</span>(userAgent).toString());
+  // -&gt; "iOS 5.1"
+  console.log(p.parseDevice(userAgent).toString());
+  // -&gt; "iPhone"
+
+}).listen(3000);
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ua-parser.parseUA" id="apidoc.element.ua-parser.parseUA">
+        function <span class="apidocSignatureSpan">ua-parser.</span>parseUA
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parser(str) {
+  var obj;
+
+  if (typeof str === 'string') {
+    for (var i = 0, length = parsers.length; i &lt; length; i++) {
+      obj = parsers[i](str);
+      if (obj) { return obj; }
+    }
+  }
+
+  return obj || new UA();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var http = require('http'),
+    p = require('ua-parser');
+
+http.createServer(function (req, res) {
+
+  var userAgent = req.headers['user-agent'];
+
+  console.log(p.<span class="apidocCodeKeywordSpan">parseUA</span>(userAgent).toString());
+  // -&gt; "Safari 5.0.1"
+  console.log(p.parseOS(userAgent).toString());
+  // -&gt; "iOS 5.1"
+  console.log(p.parseDevice(userAgent).toString());
+  // -&gt; "iPhone"
+
+}).listen(3000);
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ua-parser.device" id="apidoc.module.ua-parser.device">module ua-parser.device</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ua-parser.device.Device" id="apidoc.element.ua-parser.device.Device">
+        function <span class="apidocSignatureSpan">ua-parser.device.</span>Device
+        <span class="apidocSignatureSpan">(family)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Device(family) {
+  this.family = family || 'Other';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ua-parser.device.makeParser" id="apidoc.element.ua-parser.device.makeParser">
+        function <span class="apidocSignatureSpan">ua-parser.device.</span>makeParser
+        <span class="apidocSignatureSpan">(regexes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">makeParser = function (regexes) {
+  var parsers = regexes.map(function (obj) {
+    var regexp = new RegExp(obj.regex),
+        deviceRep = obj.device_replacement;
+
+    function parser(str) {
+      var m = str.match(regexp);
+      if (!m) { return null; }
+
+      var family = deviceRep ? deviceRep.replace('$1', m[1]) : m[1];
+      return new Device(family);
+    }
+
+    return parser;
+  });
+
+  function parser(str, ua_family, os_family) {
+    var obj;
+
+    if (typeof str === 'string') {
+      for (var i = 0, length = parsers.length; i &lt; length; i++) {
+        obj = parsers[i](str, ua_family, os_family);
+        if (obj) { return obj; }
+      }
+    }
+
+    return obj || new Device();
+  }
+
+  return parser;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ua-parser.helpers" id="apidoc.module.ua-parser.helpers">module ua-parser.helpers</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ua-parser.helpers.startsWithDigit" id="apidoc.element.ua-parser.helpers.startsWithDigit">
+        function <span class="apidocSignatureSpan">ua-parser.helpers.</span>startsWithDigit
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function startsWithDigit(str) {
+  return DIGITS.test(str);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ua-parser.os" id="apidoc.module.ua-parser.os">module ua-parser.os</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ua-parser.os.OS" id="apidoc.element.ua-parser.os.OS">
+        function <span class="apidocSignatureSpan">ua-parser.os.</span>OS
+        <span class="apidocSignatureSpan">(family, major, minor, patch, patchMinor)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function OS(family, major, minor, patch, patchMinor) {
+  this.family = family || 'Other';
+  this.major = major || null;
+  this.minor = minor || null;
+  this.patch = patch || null;
+  this.patchMinor = patchMinor || null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ua-parser.os.makeParser" id="apidoc.element.ua-parser.os.makeParser">
+        function <span class="apidocSignatureSpan">ua-parser.os.</span>makeParser
+        <span class="apidocSignatureSpan">(regexes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">makeParser = function (regexes) {
+  var parsers = regexes.map(_makeParsers)
+
+  function parser(str) {
+    var obj;
+
+    if (typeof str === 'string') {
+      for (var i = 0, length = parsers.length; i &lt; length; i++) {
+        obj = parsers[i](str);
+        if (obj) { return obj; }
+      }
+    }
+
+    return obj || new OS();
+  }
+
+  return parser;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ua-parser.results" id="apidoc.module.ua-parser.results">module ua-parser.results</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ua-parser.results.BackwardsCompatResults" id="apidoc.element.ua-parser.results.BackwardsCompatResults">
+        function <span class="apidocSignatureSpan">ua-parser.results.</span>BackwardsCompatResults
+        <span class="apidocSignatureSpan">(ua_str, ua, os, device)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BackwardsCompatResults(ua_str, ua, os, device) {
+  this.string = ua_str;
+  this.userAgent = this.ua = ua;
+  this.os = os;
+  this.device = device
+
+  // Backwards compat
+  var major = ua.major,
+      minor = ua.minor,
+      patch = ua.patch;
+
+  this.family = ua.family;
+  this.major = major === null ? UNDEF : parseInt(major);
+  this.minor = minor === null ? UNDEF : parseInt(minor);
+  this.patch = patch === null ? UNDEF : parseInt(patch);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ua-parser.ua" id="apidoc.module.ua-parser.ua">module ua-parser.ua</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ua-parser.ua.UA" id="apidoc.element.ua-parser.ua.UA">
+        function <span class="apidocSignatureSpan">ua-parser.ua.</span>UA
+        <span class="apidocSignatureSpan">(family, major, minor, patch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function UA(family, major, minor, patch) {
+  this.family = family || 'Other';
+  this.major = major || null;
+  this.minor = minor || null;
+  this.patch = patch || null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ua-parser.ua.makeParser" id="apidoc.element.ua-parser.ua.makeParser">
+        function <span class="apidocSignatureSpan">ua-parser.ua.</span>makeParser
+        <span class="apidocSignatureSpan">(regexes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">makeParser = function (regexes) {
+  var parsers = regexes.map(_makeParsers)
+
+  function parser(str) {
+    var obj;
+
+    if (typeof str === 'string') {
+      for (var i = 0, length = parsers.length; i &lt; length; i++) {
+        obj = parsers[i](str);
+        if (obj) { return obj; }
+      }
+    }
+
+    return obj || new UA();
+  }
+
+  return parser;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
